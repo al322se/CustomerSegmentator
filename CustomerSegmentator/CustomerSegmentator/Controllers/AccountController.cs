@@ -1,4 +1,6 @@
 using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -24,8 +26,8 @@ public class AccountController : Controller
     [HttpPost]
     public IActionResult Login(LoginViewModel model)
     {
-
-        var user = _appOptions.Value.Users.FirstOrDefault(u => u.Login == model.Username && u.Password == model.Password);
+        var user = _appOptions.Value.Users.FirstOrDefault(u => u.Login == model.Username &&
+                                                               u.PasswordHash == HashPassword( model.Password,_appOptions.Value.Salt));
 
         if (user != null)
         {
@@ -49,8 +51,8 @@ public class AccountController : Controller
 
 
             return user.Role=="Administrator"?
-                RedirectToAction("Create", "CustomerArrivedEvent"):
-                RedirectToAction("Index", "CustomerArrivedEvent");
+                RedirectToAction("Administrator", "CustomerArrivedEvent"):
+                RedirectToAction("Director", "CustomerArrivedEvent");
         }
 
         ModelState.AddModelError(string.Empty, "Invalid login attempt.");
@@ -61,6 +63,16 @@ public class AccountController : Controller
     {
         HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         return RedirectToAction("Login", "Account");
+    }
+
+    private static string HashPassword(string password, string salt)
+    {
+        using (var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(salt)))
+        {
+            byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+            byte[] hashBytes = hmac.ComputeHash(passwordBytes);
+            return Convert.ToBase64String(hashBytes);
+        }
     }
 }
 public class LoginViewModel

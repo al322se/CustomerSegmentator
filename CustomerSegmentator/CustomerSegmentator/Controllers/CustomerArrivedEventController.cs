@@ -22,7 +22,7 @@ namespace CustomerSegmentator.Controllers
         }
 
         [Authorize(Roles = "Director")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Director()
         {
             return
                 View(Array.Empty<CustomerArrivedEvent>());
@@ -44,7 +44,7 @@ namespace CustomerSegmentator.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        public IActionResult Create()
+        public IActionResult Administrator()
         {
             PopulateItemsInViewBag();
             return View();
@@ -60,9 +60,10 @@ namespace CustomerSegmentator.Controllers
                 customerArrivedEvent.Date=DateTimeOffset.Now;
                 _context.Add(customerArrivedEvent);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Administrator));
             }
-            return View(customerArrivedEvent);
+
+            return   RedirectToAction(nameof(Administrator));
         }
 
         private void PopulateItemsInViewBag()

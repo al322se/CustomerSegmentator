@@ -42,7 +42,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=CustomerArrivedEvent}/{action=Create}/{id?}");
+    pattern: "{controller=CustomerArrivedEvent}/{action=Administrator}/{id?}");
 
 
 app.Run();
