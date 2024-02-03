@@ -1,10 +1,23 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CustomerSegmentator.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CustomerSegmentatorContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("CustomerSegmentatorContext") ?? throw new InvalidOperationException("Connection string 'CustomerSegmentatorContext' not found.")));
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/Login";
+    });
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Director", policy => policy.RequireRole("Director"));
+    options.AddPolicy("Administrator", policy => policy.RequireRole("Administrator"));
+});
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -24,6 +37,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

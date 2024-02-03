@@ -1,8 +1,6 @@
-using System.Globalization;
-using CsvHelper;
-using CsvHelper.Configuration;
 using CustomerSegmentator.Data;
 using CustomerSegmentator.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +21,7 @@ namespace CustomerSegmentator.Controllers
             context.Database.Migrate();
         }
 
+        [Authorize(Roles = "Director")]
         public async Task<IActionResult> Index()
         {
             return
@@ -30,6 +29,7 @@ namespace CustomerSegmentator.Controllers
 
         }
 
+        [Authorize(Roles = "Director")]
         public async Task<IActionResult> DownloadCsv(CancellationToken cancellationToken)
         {
             const string fileName = "customerSegments.csv";
@@ -43,13 +43,14 @@ namespace CustomerSegmentator.Controllers
             return File(bytes, CsvWriteHelper.ContentType, fileName);
         }
 
-        // GET: CustomerArrivedEvent/Create
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             PopulateItemsInViewBag();
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Quantity,Segment,Tarriff,PaymentType")] CustomerArrivedEvent customerArrivedEvent)
@@ -73,31 +74,5 @@ namespace CustomerSegmentator.Controllers
             var paymentTypes = _appOptions.Value.PaymentTypes.Select(pt => new SelectListItem(pt, pt)).ToList();
             ViewData.Add("PaymentTypes", paymentTypes);
         }
-
-
-    }
-}
-
-public static class CsvWriteHelper
-{
-    public const string ContentType = "text/csv";
-
-    public static async Task<byte[]> WriteCsv(Func<CsvWriter, Task> writeRecords)
-    {
-        await using var memoryStream = new MemoryStream();
-        await using var writer = new StreamWriter(memoryStream);
-        await using var csv = new CsvWriter(writer, new CsvConfiguration(CultureInfo.InvariantCulture));
-        await writeRecords(csv);
-        await csv.FlushAsync();
-        await writer.FlushAsync();
-        return memoryStream.ToArray();
-    }
-
-    public static async Task WriteToCsvAsync<T>(this CsvWriter csvWriter, IReadOnlyCollection<T> records, CancellationToken cancellationToken)
-    {
-        csvWriter.WriteHeader(typeof(T));
-        await csvWriter.NextRecordAsync();
-        await csvWriter.WriteRecordsAsync(records, cancellationToken);
-        await csvWriter.NextRecordAsync();
     }
 }

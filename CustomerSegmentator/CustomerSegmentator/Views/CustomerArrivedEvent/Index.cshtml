@@ -1,14 +1,10 @@
 @model IEnumerable<CustomerSegmentator.Models.CustomerArrivedEvent>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Director";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Director</h1>
+
 <a href="@Url.Action("DownloadCsv", "CustomerArrivedEvent")" class="btn btn-primary">Download CSV</a>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
