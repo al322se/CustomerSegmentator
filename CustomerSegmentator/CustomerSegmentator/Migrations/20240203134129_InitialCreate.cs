@@ -22,7 +22,7 @@ namespace CustomerSegmentator.Migrations
                     Quantity = table.Column<int>(type: "integer", nullable: false),
                     Segment = table.Column<string>(type: "text", nullable: true),
                     Tarriff = table.Column<string>(type: "text", nullable: true),
-                    IsCash = table.Column<bool>(type: "boolean", nullable: false)
+                    PaymentType = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -8,6 +8,7 @@ builder.Services.AddDbContext<CustomerSegmentatorContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.Configure<AppOptions>(builder.Configuration.GetSection("AppOptions"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

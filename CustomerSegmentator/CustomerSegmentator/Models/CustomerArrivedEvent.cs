@@ -7,5 +7,5 @@ public class CustomerArrivedEvent
     public int Quantity { get; set; }
     public string? Segment { get; set; }
     public string? Tarriff { get; set; }
-    public bool IsCash { get; set; }
+    public string? PaymentType { get; set; }
 }

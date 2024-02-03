@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CustomerSegmentator.Migrations
 {
     [DbContext(typeof(CustomerSegmentatorContext))]
-    [Migration("20240201163924_InitialCreate")]
+    [Migration("20240203134129_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -36,8 +36,8 @@ namespace CustomerSegmentator.Migrations
                     b.Property<DateTimeOffset>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<bool>("IsCash")
-                        .HasColumnType("boolean");
+                    b.Property<string>("PaymentType")
+                        .HasColumnType("text");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("integer");

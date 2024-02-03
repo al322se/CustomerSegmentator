@@ -20,18 +20,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="Segment" class="control-label"></label>
-                <input asp-for="Segment" class="form-control" />
+                <select asp-for="Segment" asp-items="ViewBag.Segments" class="form-control"></select>
                 <span asp-validation-for="Segment" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tarriff" class="control-label"></label>
-                <input asp-for="Tarriff" class="form-control" />
+                <select asp-for="Tarriff" asp-items="ViewBag.Tarrifs" class="form-control"></select>
                 <span asp-validation-for="Tarriff" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsCash" /> @Html.DisplayNameFor(model => model.IsCash)
-                </label>
+            <div class="form-group">
+                <label asp-for="PaymentType" class="control-label"></label>
+                <select asp-for="PaymentType" asp-items="ViewBag.PaymentTypes" class="form-control"></select>
+                <span asp-validation-for="PaymentType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

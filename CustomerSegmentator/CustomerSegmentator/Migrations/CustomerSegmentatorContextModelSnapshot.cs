@@ -33,8 +33,8 @@ namespace CustomerSegmentator.Migrations
                     b.Property<DateTimeOffset>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<bool>("IsCash")
-                        .HasColumnType("boolean");
+                    b.Property<string>("PaymentType")
+                        .HasColumnType("text");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("integer");
