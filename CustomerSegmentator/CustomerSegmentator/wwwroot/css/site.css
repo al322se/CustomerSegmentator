@@ -20,3 +20,120 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.quantity-input {
+  width: 344px;
+  height: 54px;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  top: 143px;
+  left: 16px;
+  border: 1px solid rgba(46,161,218,1);
+  color: rgba(46,161,218,1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+}
+.quantity-input::placeholder {
+  color: rgba(46,161,218,1);
+  opacity: 1; /* Firefox */
+}
+.tariff-input:focus{
+  color: rgba(46,161,218,1);
+}
+
+.tariff-input {
+  width: 344px;
+  height: 54px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  top: 233px;
+  left: 16px;
+  border: 1px solid rgba(241,54,54,1);
+  color: rgba(241,54,54,1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+}
+.tariff-input::placeholder {
+  color: rgba(241,54,54,1);
+  opacity: 1; /* Firefox */
+}
+.tariff-input option { color: rgba(241,54,54,1); }
+.tariff-input:focus{
+  color: rgba(241,54,54,1);
+}
+
+.segment-input {
+  width: 344px;
+  height: 54px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  top: 323px;
+  left: 16px;
+  border: 1px solid rgba(250,199,39,1);
+  color: rgba(250,199,39,1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+}
+.segment-input::placeholder {
+  color: rgba(250,199,39,1);
+  opacity: 1; /* Firefox */
+}
+.segment-input option { color: rgba(250,199,39,1); }
+.segment-input:focus{
+  color: rgba(250,199,39,1);
+}
+
+.payment-input {
+  width: 344px;
+  height: 54px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  top: 413px;
+  left: 16px;
+  border: 1px solid rgba(46,170,74,1);
+  color: rgba(46,170,74,1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+}
+.payment-input::placeholder {
+  color: rgba(46,170,74,1);
+  opacity: 1; /* Firefox */
+}
+.payment-input option { color: rgba(46,170,74,1); }
+.payment-input:focus{
+  color: rgba(46,170,74,1);
+}
+
+.add-button {
+
+  color: rgba(46,161,218,1);
+border: 0;
+
+
+
+  font-weight: Semi Bold;
+  font-size: 14px;
+  opacity: 1;
+  text-align: left;
+}
