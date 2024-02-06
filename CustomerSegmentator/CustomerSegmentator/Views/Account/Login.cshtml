@@ -3,8 +3,7 @@
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Login</h1>
-<hr />
+
 <div class="row">
     <div class="col-md-4">
       <form asp-action="Login" method="post">
@@ -19,7 +18,10 @@
             </div>
 
             <div class="form-group  p-2">
-                <input type="submit" value="Sign In" class="btn add-button" />
+
+                <div class="d-flex justify-content-center">
+                   <input type="submit" value="Sign In" class="btn add-button" />
+                </div>
             </div>
         </form>
     </div>
