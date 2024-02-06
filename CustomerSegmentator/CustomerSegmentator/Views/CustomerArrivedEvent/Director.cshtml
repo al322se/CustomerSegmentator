@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Director</h1>
+<div class="d-flex justify-content-between align-items-center">
+    <svg width="81" height="78" viewBox="0 0 81 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M44.55 7.80005V23.4C44.55 25.554 46.3633 27.3 48.6 27.3H64.8M45.2449 7.80005H24.3C19.8265 7.80005 16.2 11.2922 16.2 15.6V62.4C16.2 66.7079 19.8265 70.2 24.3 70.2H56.7C61.1735 70.2 64.8 66.7079 64.8 62.4V26.6309C64.8 24.5622 63.9466 22.5783 62.4276 21.1155L50.9725 10.0846C49.4534 8.62183 47.3931 7.80005 45.2449 7.80005Z" stroke="#707070" stroke-width="2"/>
+    </svg>
+    <a href="@Url.Action("DownloadCsv", "CustomerArrivedEvent")" class="btn button-download">Download </a>
 
-<a href="@Url.Action("DownloadCsv", "CustomerArrivedEvent")" class="btn btn-primary">Download CSV</a>
+</div>
