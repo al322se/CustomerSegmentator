@@ -122,11 +122,15 @@ body {
 
 .add-button {
   color: rgba(46,161,218,1);
-  border: 0;
   font-weight: Semi Bold;
   font-size: 14px;
   opacity: 1;
   text-align: left;
+  border: 1px solid  rgba(46,161,218,1);;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 
@@ -149,4 +153,19 @@ body {
 }
 .login-input:focus{
   color:  rgba(46,161,218,1);
+}
+.red-text{
+  color: #F24F4F;
+  display: inline-block;
+  font-weight: bold;
+}
+.yellow-text{
+  color: #FCE086;
+  display: inline-block;
+  font-weight: bold;
+}
+.green-text{
+  color: #2EAA4A;
+  display: inline-block;
+  font-weight: bold;
 }

@@ -5,37 +5,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Administrator</h1>
 
-
-<hr />
-<div class="row">
+<div class="row mt-5">
     <div class="col-md-4">
        @using (Html.BeginForm("Create", "CustomerArrivedEvent", FormMethod.Post))
        {
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group p-2">
+            <div class="form-group p-3">
                 <input placeholder="Quantity" asp-for="Quantity" class="form-control quantity-input" />
                 <span asp-validation-for="Quantity" class="text-danger"></span>
             </div>
-           <div class="form-group p-2">
+           <div class="form-group p-3">
 
                <select asp-for="Tarriff" asp-items="ViewBag.Tarrifs" placeholder="Tariff" class="form-control tariff-input"></select>
                <span asp-validation-for="Tarriff" class="text-danger"></span>
            </div>
 
-           <div class="form-group p-2">
+           <div class="form-group p-3">
                 <select asp-for="Segment" asp-items="ViewBag.Segments" placeholder="Segment"  class="form-control segment-input"></select>
                 <span asp-validation-for="Segment" class="text-danger"></span>
             </div>
 
-            <div class="form-group p-2">
+            <div class="form-group p-3">
                 <select asp-for="PaymentType" asp-items="ViewBag.PaymentTypes" placeholder="Payment" class="form-control payment-input"></select>
                 <span asp-validation-for="PaymentType" class="text-danger"></span>
             </div>
-            <div class="form-group p-2">
-                 <input type="submit" value="Add" class="btn add-button" />
-            </div>
+           <div class="form-group p-3">
+                    <div class="d-flex justify-content-end">
+                        <input type="submit" value="Add" class="btn add-button"/>
+                        </div>
+           </div>
            }
     </div>
 </div>
