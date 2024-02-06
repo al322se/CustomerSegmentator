@@ -22,8 +22,7 @@ body {
 }
 
 .quantity-input {
-  width: 344px;
-  height: 54px;
+
 
   background-repeat: no-repeat;
   background-position: center center;
@@ -48,8 +47,7 @@ body {
 }
 
 .tariff-input {
-  width: 344px;
-  height: 54px;
+
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -74,8 +72,7 @@ body {
 }
 
 .segment-input {
-  width: 344px;
-  height: 54px;
+
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -100,16 +97,14 @@ body {
 }
 
 .payment-input {
-  width: 344px;
-  height: 54px;
+
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   opacity: 1;
-  top: 413px;
-  left: 16px;
+
   border: 1px solid rgba(46,170,74,1);
-  color: rgba(46,170,74,1);
+  color: rgba(46,170,74,1)!important;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -126,14 +121,32 @@ body {
 }
 
 .add-button {
-
   color: rgba(46,161,218,1);
-border: 0;
-
-
-
+  border: 0;
   font-weight: Semi Bold;
   font-size: 14px;
   opacity: 1;
   text-align: left;
+}
+
+
+.login-input {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  border: 1px solid rgba(46,161,218,1);
+  color: rgba(46,161,218,1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+}
+.login-input::placeholder {
+  color:  rgba(46,161,218,1);
+  opacity: 1; /* Firefox */
+}
+.login-input:focus{
+  color:  rgba(46,161,218,1);
 }
