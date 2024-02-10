@@ -1,11 +1,12 @@
 services:
   customersegmentator:
     image: customersegmentator
+    ports:
+      - 80:80
     build:
       context: .
       dockerfile: CustomerSegmentator/Dockerfile
-      ports:
-            - 80:80
+
   db:
     image: postgres
     restart: always
